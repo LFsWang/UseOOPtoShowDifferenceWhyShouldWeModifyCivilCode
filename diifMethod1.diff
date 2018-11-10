@@ -1,0 +1,60 @@
+diff --git a/Origin.cpp b/Method1.cpp
+index 8f4b641..5df7725 100644
+--- a/Origin.cpp
++++ b/Method1.cpp
+@@ -39,12 +39,38 @@ public:
+     }
+ };
+ 
+-class RuleA: private CivilCode
++class SpecialLawFowSameGender
++{
++public:
++    using Partner = pair<Human, Human>;
++
++    bool isPartner(Partner user)
++    {
++        if( isMale(user.first) == isFemale(user.second) )
++        {
++            return false; //different gender
++        }
++        //... some checks
++        return true;
++    }
++    
++    bool isMale(Human user)
++    {
++        return user.gender == PhysicalGender::male;
++    }
++
++    bool isFemale(Human user)
++    {
++        return user.gender == PhysicalGender::female;
++    }
++};
++
++class RuleA: private CivilCode, private SpecialLawFowSameGender
+ {
+ public:
+     bool check(Human a, Human b)
+     {
+-        if( isMarried({a, b}) )
++        if( isMarried({a, b}) || isPartner({a, b}) )
+         {
+             return true;
+         }
+@@ -52,12 +78,12 @@ public:
+     }
+ };
+ 
+-class RuleB: private CivilCode
++class RuleB: private CivilCode, private SpecialLawFowSameGender
+ {
+ public:
+     bool check(Human a, Human b)
+     {
+-        if( isMarried({a, b}) )
++        if( isMarried({a, b}) || isPartner({a, b}) )
+         {
+             return true;
+         }

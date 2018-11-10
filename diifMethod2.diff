@@ -1,0 +1,15 @@
+diff --git a/Origin.cpp b/Method2.cpp
+index 8f4b641..e88ded6 100644
+--- a/Origin.cpp
++++ b/Method2.cpp
+@@ -20,10 +20,6 @@ public:
+ 
+     bool isMarried(Partner user)
+     {
+-        if( isMale(user.first) != isFemale(user.second) )
+-        {
+-            return false; //same gender
+-        }
+         //... some checks
+         return true;
+     }

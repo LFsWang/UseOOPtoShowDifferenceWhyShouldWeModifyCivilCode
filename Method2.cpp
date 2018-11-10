@@ -35,38 +35,12 @@ public:
     }
 };
 
-class SpecialLawFowSameGender
-{
-public:
-    using Partner = pair<Human, Human>;
-
-    bool isPartner(Partner user)
-    {
-        if( isMale(user.first) == isFemale(user.second) )
-        {
-            return false; //different gender
-        }
-        //... some checks
-        return true;
-    }
-    
-    bool isMale(Human user)
-    {
-        return user.gender == PhysicalGender::male;
-    }
-
-    bool isFemale(Human user)
-    {
-        return user.gender == PhysicalGender::female;
-    }
-};
-
-class RuleA: private CivilCode, private SpecialLawFowSameGender
+class RuleA: private CivilCode
 {
 public:
     bool check(Human a, Human b)
     {
-        if( isMarried({a, b}) || isPartner({a, b}) )
+        if( isMarried({a, b}) )
         {
             return true;
         }
@@ -74,12 +48,12 @@ public:
     }
 };
 
-class RuleB: private CivilCode, private SpecialLawFowSameGender
+class RuleB: private CivilCode
 {
 public:
     bool check(Human a, Human b)
     {
-        if( isMarried({a, b}) || isPartner({a, b}) )
+        if( isMarried({a, b}) )
         {
             return true;
         }
