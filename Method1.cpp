@@ -39,7 +39,7 @@ public:
     }
 };
 
-class SpecialLawFowSameGender
+class SpecialLawForSameGender
 {
 public:
     using Partner = pair<Human, Human>;

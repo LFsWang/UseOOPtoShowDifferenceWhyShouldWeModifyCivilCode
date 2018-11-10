@@ -1,5 +1,5 @@
 diff --git a/Origin.cpp b/Method1.cpp
-index 8f4b641..5df7725 100644
+index 8f4b641..08b1229 100644
 --- a/Origin.cpp
 +++ b/Method1.cpp
 @@ -39,12 +39,38 @@ public:
@@ -7,7 +7,7 @@ index 8f4b641..5df7725 100644
  };
  
 -class RuleA: private CivilCode
-+class SpecialLawFowSameGender
++class SpecialLawForSameGender
 +{
 +public:
 +    using Partner = pair<Human, Human>;
